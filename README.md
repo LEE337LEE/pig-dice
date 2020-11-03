@@ -1,6 +1,8 @@
 ## Pig Dice Game
 When its your turn, roll the dice.
+
 You can see the score for each roll you make, the cumulative score is also visible for each player
+
 The first player to score 100 points wins the game
        
 ## Project technologies

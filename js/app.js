@@ -83,3 +83,24 @@ function init() {
   activePlayer = 0; // current round score for each player
   roundScore = 0;
   gamePlaying = true;
+   // Hide the dice before any rolls
+   $(".dice").addClass("hidden");
+   $("#score-0").text("0");
+   $("#score-1").text("0");
+   $("#current-0").text("0");
+   $("#current-1").text("0");
+   $("#name-0").text("Player 1");
+   $("#name-1").text("Player 2");
+   $(".player-0-panel").removeClass("winner");
+   $(".player-1-panel").removeClass("winner");
+   $(".player-0-panel").removeClass("active");
+   $(".player-1-panel").removeClass("active");
+   $(".player-0-panel").addClass("active");
+ }
+ 
+ // Clear entire player's score
+ function dropPlayersScore() {
+   scores[activePlayer] = 0;
+   $("#score-" + activePlayer).text(0);
+ }
+ 

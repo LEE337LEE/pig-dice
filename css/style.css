@@ -44,3 +44,21 @@
     height: 600px;
     padding: 100px;
   }
+  .player-name {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .player-score {
+    text-align: center;
+    font-size: 80px;
+    font-weight: 100;
+    color: #eb4d4d;
+    margin-bottom: 130px;
+  }

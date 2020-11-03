@@ -5,8 +5,11 @@ The first player to score 100 points wins the game
        
 ## Project technologies
 The game uses
+
 Html
+
 Css
+
 Javascript (including constructors and prototypes)
 
 ## Future projections

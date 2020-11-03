@@ -26,3 +26,60 @@ $(document).ready(function () {
       }
     }
   });
+   // Add players current score to global score
+   $(".btn-hold").click(function () {
+    if (gamePlaying) {
+      // add current score to global score
+      scores[activePlayer] += roundScore;
+
+      // update the ui
+      $(`#score-${activePlayer}`).text(scores[activePlayer]);
+
+      // Check if player won the game
+      if (scores[activePlayer] >= ScoreToReach) {
+        $(`#name-${activePlayer}`).text("Winner!");
+        $(".dice").addClass("hidden");
+        $(`.player-${activePlayer}-panel`).addClass("winner");
+        $(`.player-${activePlayer}-panel`).removeClass("active");
+        gamePlaying = false;
+      } else {
+        // next player with minimun delay
+        nextPlayer(100);
+      }
+    }
+  });
+
+  // setting the init function as callback
+  $(".btn-new").click(init);
+});
+
+function nextPlayer(theTimeout) {
+  // debugger;
+  // switch players
+  activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+  roundScore = 0;
+
+  // Show zeros on scores
+  $("#current-0").text(0);
+  $("#current-1").text(0);
+
+  // Activate new player's board
+  $(".player-0-panel").toggleClass("active");
+  $(".player-1-panel").toggleClass("active");
+
+  // Find all the cubes
+  var dice = $(".dice");
+
+  // hide the dices
+  setTimeout(function () {
+    dice.addClass("hidden");
+    // make the ROLL DICE button working again
+    $(".btn-roll").removeProp("disabled");
+  }, theTimeout);
+}
+
+function init() {
+  scores = [0, 0];
+  activePlayer = 0; // current round score for each player
+  roundScore = 0;
+  gamePlaying = true;
